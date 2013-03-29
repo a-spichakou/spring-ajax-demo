@@ -18,7 +18,6 @@ public class MockSplunkService implements ISplunkService{
 	
 	private static Map<String, MockSearchJob> jobs = new HashMap<String, MockSearchJob>();
 
-	@Override
 	public String startSearch() {
 		final MockSearchJob job = new MockSearchJob();
 		fillByRundom(job);
@@ -39,7 +38,6 @@ public class MockSplunkService implements ISplunkService{
 		return job;
 	}
 
-	@Override
 	public SearchStatus getSearchStatus(String searchId) {
 		final long currentTime = System.currentTimeMillis();
 		final MockSearchJob mockSearchJob = jobs.get(searchId);
@@ -58,7 +56,6 @@ public class MockSplunkService implements ISplunkService{
 		}
 	}
 
-	@Override
 	public List<LogRecord> getResults(String searchId) {
 		final MockSearchJob mockSearchJob = jobs.get(searchId);
 		if(mockSearchJob==null)
